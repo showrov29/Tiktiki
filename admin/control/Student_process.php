@@ -1,5 +1,5 @@
 <?php
-
+include("../model/mydb.php");
 $printcookie="";
 setcookie("visit","1",time()+36000);
 if(isset($_COOKIE["visit"]))
@@ -23,6 +23,7 @@ if(isset($_REQUEST["Submit"]))
 {
 $fname=$_REQUEST["firstname"];
 $haserror=0;
+}
 if(empty($fname))
 {
     $fnameerror= " first name not found";
@@ -47,7 +48,6 @@ if ($_REQUEST['pass'] != $_REQUEST['repass']) {
 
     $haserror=1;
     $passErr= "Password dosen't match ";
-    // code...
 }
 
 
@@ -127,32 +127,17 @@ else{
 }
 if($haserror==0)
 {
-$existingdata=file_get_contents("../data/users.json");
-$phpdata=json_decode($existingdata);
-    $formdata=array(
-        "fname"=>$_REQUEST["firstname"],
-        "lname"=>$_REQUEST["lastname"],
-        "gender"=>$_REQUEST["gender"],
-        "email"=>$_REQUEST["email"],
-        "password"=>$_REQUEST["pass"],
-        "course"=>$_REQUEST["course"],
-        "file"=>"../uploads/".$_REQUEST["email"].".jpg",
-    );
-    $phpdata=$formdata;
-
-    $users=json_encode($phpdata,JSON_PRETTY_PRINT);
-
-if(file_put_contents("../data/users.json",$users))
+$mydb= new MyDB();
+$conobj= $mydb->openCon();
+$result=$mydb->insertData("customer",$_REQUEST["firstname"],$_REQUEST["lastname"],
+$_REQUEST["gender"],$_REQUEST["email"],$_REQUEST["pass"],$_REQUEST["course"],
+"../uploads/".$_REQUEST["email"].".jpg",$conobj);
+}
+if($result===TRUE)
 {
-    echo "file written successfully";
+    echo "Success";
 }
-else{
-    echo "file written failed";
+else
+{
+    echo "Error".$conobj->error;
 }
-
-}
-
-
-}
-
-?>

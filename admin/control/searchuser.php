@@ -1,14 +1,13 @@
 <?php
-session_start();
-include "../model/mydb.php";
-$fname=$lname=$email=$gender=$course=$file="";
-if(empty($_SESSION["email"]))
-{
-    header("Location: ../view/login.php");
-}
+include ("../model/mydb.php");
+
+$email=$_REQUEST["email"];
+
+
+
 $mydb= new MyDB();
 $conobj=$mydb->openCon();
-$result=$mydb->getUserInfo("customer", $_SESSION["email"], $conobj);
+$result=$mydb->searchUser("customer", $conobj, $email);
 if($result->num_rows > 0)
 {
     while($row=$result->fetch_assoc()){
@@ -18,7 +17,13 @@ if($result->num_rows > 0)
         $gender=$row["gender"];
         $course=$row["course"];
         $file=$row["file"];
+        echo "name: ".$fname.$lname.$email.$gender.$course.$file;
     }
 }
+else
+{
+    echo "no data found";
+}
+
 
 ?>

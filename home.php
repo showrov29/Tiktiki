@@ -7,16 +7,16 @@
 </head>
 
 <body>
-<?php include 'layout/header.php'; ?>
+<?php include 'layouts/header.php'; ?>
 
 <h1>
     Home Page
 </h1>
 
-<a href="admin/view/registration.php">Student</a>
+<a href="admin/view/registration.php">Admin</a>
 
 
-<?php include 'layout/footer.php'; ?>
+<?php include 'layouts/footer.php'; ?>
 
 </body>
 

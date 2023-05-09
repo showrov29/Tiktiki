@@ -1,10 +1,4 @@
 <?php 
-
-// session_start();
-
-// if (!isset($_SESSION['email'])){
-//     header('Location:login.php');
-// }
 include '../control/Student_process.php';
 
 ?>
@@ -12,10 +6,13 @@ include '../control/Student_process.php';
 <html>  
     <head>   
         <title>  
-            Registration Page  
+            Satudent Registration Page  
         </title>  
     </head>  
     <body bgcolor="orange">
+    <?php include '../../layouts/header.php'; 
+
+?>
         <h1 style="margin-left:auto; margin-right:auto; text-align:center;"><u>Student Ragistration Page </u></h1>   
         <form style="margin-left:auto; margin-right:auto; text-align:left;" action="" method="POST" enctype="multipart/form-data">  
         <br> <br>
@@ -146,5 +143,6 @@ include '../control/Student_process.php';
             </table>
              
         </form> 
+        <?php include '../../layouts/footer.php'; ?>
     </body>  
 </html> 

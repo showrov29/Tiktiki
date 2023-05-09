@@ -1,0 +1,111 @@
+*{text-align:center; box-sizing: border-box;}
+#pcustome{
+    color:white;
+    background-color: #357fe7;
+    border-left: #0e3b7b 10px solid;
+    width: 100px;
+    position: relative;
+    left: 200px;
+}
+
+
+div.form {
+   padding: 10px;
+   margin-top: 10px;
+    border: 5px solid gray;
+    width: 500px;
+    position: relative;
+    left: 380px;
+  }
+  .button {
+    padding: 14px 20px;
+    margin: 8px 0;
+    width: 100px;
+    height: auto;
+  }
+  .submit {
+   background-color: #357fe7;
+   color: white;
+  }
+
+  .reset {
+    background-color: #dc2b2b;
+    color: white;
+   }
+
+  
+  body {
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  
+  /* Float four columns side by side */
+  .column {
+    float: left;
+    width: 25%;
+    padding: 0 10px;
+    margin-bottom: 20px;
+    border-color: #000;
+    
+  }
+  
+  /* Remove extra left and right margins, due to padding */
+  .row {margin: 0 -5px;}
+  
+  /* Clear floats after the columns */
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  
+  /* Responsive columns */
+  @media screen and (max-width: 600px) {
+    .column {
+      width: 100%;
+      display: block;
+      margin-bottom: 20px;
+    }
+  }
+  
+  .card {
+    box-shadow: 0 4px 8px 0 rgba(182, 61, 61, 0.2);
+    max-width: 300px;
+    margin: auto;
+    text-align: center;
+    font-family: arial;
+background-color: #0000008a;
+  }
+  
+  .title {
+    color: grey;
+    font-size: 18px;
+  }
+
+  
+  a {
+    text-decoration: none;
+    font-size: 22px;
+    color: black;
+  }
+ 
+
+  .btn {
+    border: none;
+    outline: 0;
+    display: inline-block;
+    padding: 8px;
+    color: white;
+    background-color: #000;
+    text-align: center;
+    cursor: pointer;
+  
+    font-size: 18px;
+  }
+  
+  .btn:hover {background: #eee;}
+  
+  .success {color: green;}
+  .info {color: dodgerblue;}
+  .warning {color: orange;}
+  .danger {color: red;}
+  .default {color: black;}
